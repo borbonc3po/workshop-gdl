@@ -8,9 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+#include <winsock2.h>
 #include <unistd.h>
 
 #define PORT 3550 /* El puerto que será abierto */
@@ -197,6 +195,7 @@ void doprocessing (int sock)
 {
     int n;
     char buffer[256];
+<<<<<<< HEAD
     bzero(buffer,256);
     n = read(sock,buffer,255);
     //findRFC(buffer);
@@ -213,14 +212,69 @@ void doprocessing (int sock)
     {
         perror("ERROR writing to socket\n");
         exit(1);
+=======
+
+    memset(&(buffer), '0', 256);
+    int recvMsgSize;
+    
+    /* Receive message from client */
+    if ((recvMsgSize = recv(sock, buffer, 256, 0)) < 0)
+        perror("ERROR reading to socket");
+
+    /* Send received string and receive again until end of transmission */
+    while (recvMsgSize > 0)      /* zero indicates end of transmission */
+    {
+        /* Echo message back to client */
+        if (send(sock, buffer, recvMsgSize, 0) != recvMsgSize)
+            perror("ERROR writing to socket");
+
+        /* See if there is more data to receive */
+        if ((recvMsgSize = recv(sock, buffer, 256, 0)) < 0)
+            perror("ERROR reading to socket");
+>>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
     }
+
+    closesocket(sock);    /* Close client socket */
+}
+
+BOOL initW32() 
+{
+		WSADATA wsaData;
+		WORD version;
+		int error;
+		
+		version = MAKEWORD( 2, 0 );
+		
+		error = WSAStartup( version, &wsaData );
+		
+		/* check for error */
+		if ( error != 0 )
+		{
+		    /* error occured */
+		    return FALSE;
+		}
+		
+		/* check for correct version */
+		if ( LOBYTE( wsaData.wVersion ) != 2 ||
+		     HIBYTE( wsaData.wVersion ) != 0 )
+		{
+		    /* incorrect WinSock version */
+		    WSACleanup();
+		    return FALSE;
+		}	
 }
 
 
+<<<<<<< HEAD
 void start()
 {
    /* los descriptores de Sockets (que son archivos) */
    int Socket_1, Socket_2; 
+=======
+	 initW32(); /* Necesaria para compilar en Windows */ 
+	 	
+   int fd, fd2; /* los descriptores de archivos */
+>>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
 
    /* para la información de la dirección del servidor formato de la estructura:
       struct in_addr
@@ -288,6 +342,7 @@ void start()
       
       /* Aqui se mostrará la IP del cliente */
       printf("Se obtuvo una conexión desde %s\n", inet_ntoa(client.sin_addr) );
+<<<<<<< HEAD
       /* Se enviará el mensaje de bienvenida al cliente */
       //send(Socket_2,"Bienvenido a mi servidor",20,0);
       /*
@@ -316,6 +371,15 @@ void start()
 	  //close(Socket_1);
           close(Socket_2);
       }
+=======
+      /* que mostrará la IP del cliente */
+
+      send(fd2,"Bienvenido a mi servidor.\n",22,0);
+      /* que enviará el mensaje de bienvenida al cliente */
+      
+      doprocessing(fd2);
+
+>>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
    } /* end while */
 }
 

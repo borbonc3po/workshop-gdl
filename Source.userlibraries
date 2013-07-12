@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.apache.struts:struts2-config-browser-plugin:2.3.14.2">
+    <archive path="/Users/bnk/.m2/repository/org/apache/struts/struts2-config-browser-plugin/2.3.14.2/struts2-config-browser-plugin-2.3.14.2.jar" />
+  </library>
+  <library name="Maven: commons-fileupload:commons-fileupload:1.2.2">
+    <archive path="/Users/bnk/.m2/repository/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar" />
+  </library>
+  <library name="Maven: commons-logging:commons-logging:1.1.1">
+    <archive path="/Users/bnk/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+  </library>
+  <library name="Maven: asm:asm-commons:3.3">
+    <archive path="/Users/bnk/.m2/repository/asm/asm-commons/3.3/asm-commons-3.3.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-api:1.7.5">
+    <archive path="/Users/bnk/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar" />
+  </library>
+  <library name="Maven: commons-io:commons-io:2.0.1">
+    <archive path="/Users/bnk/.m2/repository/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" />
+  </library>
+  <library name="Maven: org.apache.struts.xwork:xwork-core:2.3.14.2">
+    <archive path="/Users/bnk/.m2/repository/org/apache/struts/xwork/xwork-core/2.3.14.2/xwork-core-2.3.14.2.jar" />
+  </library>
+  <library name="Maven: org.freemarker:freemarker:2.3.19">
+    <archive path="/Users/bnk/.m2/repository/org/freemarker/freemarker/2.3.19/freemarker-2.3.19.jar" />
+  </library>
+  <library name="Maven: asm:asm-tree:3.3">
+    <archive path="/Users/bnk/.m2/repository/asm/asm-tree/3.3/asm-tree-3.3.jar" />
+  </library>
+  <library name="Maven: ch.qos.logback:logback-core:1.0.13">
+    <archive path="/Users/bnk/.m2/repository/ch/qos/logback/logback-core/1.0.13/logback-core-1.0.13.jar" />
+  </library>
+  <library name="Maven: javax.servlet:jsp-api:2.0">
+    <archive path="/Users/bnk/.m2/repository/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar" />
+  </library>
+  <library name="Maven: asm:asm:3.3">
+    <archive path="/Users/bnk/.m2/repository/asm/asm/3.3/asm-3.3.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-test:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: javassist:javassist:3.11.0.GA">
+    <archive path="/Users/bnk/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar" />
+  </library>
+  <library name="Maven: ognl:ognl:3.0.6">
+    <archive path="/Users/bnk/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar" />
+  </library>
+  <library name="Maven: ch.qos.logback:logback-classic:1.0.13">
+    <archive path="/Users/bnk/.m2/repository/ch/qos/logback/logback-classic/1.0.13/logback-classic-1.0.13.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-beans:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-expression:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.mockito:mockito-all:1.9.5">
+    <archive path="/Users/bnk/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar" />
+  </library>
+  <library name="Maven: aopalliance:aopalliance:1.0">
+    <archive path="/Users/bnk/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" />
+  </library>
+  <library name="Maven: org.apache.commons:commons-lang3:3.1">
+    <archive path="/Users/bnk/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar" />
+  </library>
+  <library name="Maven: org.apache.struts:struts2-core:2.3.14.2">
+    <archive path="/Users/bnk/.m2/repository/org/apache/struts/struts2-core/2.3.14.2/struts2-core-2.3.14.2.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-context:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.apache.struts:struts2-junit-plugin:2.3.14.2">
+    <archive path="/Users/bnk/.m2/repository/org/apache/struts/struts2-junit-plugin/2.3.14.2/struts2-junit-plugin-2.3.14.2.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-aop:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: javax.servlet:servlet-api:2.4">
+    <archive path="/Users/bnk/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar" />
+  </library>
+  <library name="Maven: junit:junit:4.8.2">
+    <archive path="/Users/bnk/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-asm:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="Maven: org.springframework:spring-core:3.0.5.RELEASE">
+    <archive path="/Users/bnk/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar" />
+  </library>
+  <library name="grails-2.0.0" />
+  <library name="grails-2.1.1">
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-bootstrap-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-core-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-crud-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-docs-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-hibernate-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-logging-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-async-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-codecs-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-controllers-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-converters-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-datasource-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-domain-class-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-filters-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-gsp-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-i18n-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-log4j-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-mimetypes-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-scaffolding-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-services-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-servlets-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-testing-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-tomcat-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-url-mappings-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-plugin-validation-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-resources-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-scripts-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-spring-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-test-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-test-suite-base-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-web-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-webflow-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/dist/grails-wrapper-support-2.1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/antlr/antlr/jars/antlr-2.7.7.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/aopalliance/aopalliance/jars/aopalliance-1.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/asm/asm/jars/asm-3.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/bouncycastle/bcmail-jdk14/jars/bcmail-jdk14-138.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/cglib/cglib/jars/cglib-2.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.google.protobuf/protobuf-java/jars/protobuf-java-2.4.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.googlecode.concurrentlinkedhashmap/concurrentlinkedhashmap-lru/jars/concurrentlinkedhashmap-lru-1.2_jdk5.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.googlecode.json-simple/json-simple/jars/json-simple-1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.h2database/h2/jars/h2-1.3.164.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.lowagie/itext/jars/itext-2.0.8.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/com.springsource.springloaded/springloaded-core/jars/springloaded-core-1.0.6.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.8.3.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-cli/commons-cli/jars/commons-cli-1.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-codec/commons-codec/jars/commons-codec-1.5.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-dbcp/commons-dbcp/jars/commons-dbcp-1.4.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-el/commons-el/jars/commons-el-1.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-fileupload/commons-fileupload/jars/commons-fileupload-1.2.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-io/commons-io/jars/commons-io-2.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-lang/commons-lang/jars/commons-lang-2.6.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-pool/commons-pool/jars/commons-pool-1.5.6.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/commons-validator/commons-validator/jars/commons-validator-1.3.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/dom4j/dom4j/jars/dom4j-1.6.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/hsqldb/hsqldb/jars/hsqldb-1.8.0.10.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.persistence/persistence-api/jars/persistence-api-1.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.servlet/jsp-api/jars/jsp-api-2.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.servlet/jstl/jars/jstl-1.1.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.servlet/servlet-api/jars/servlet-api-2.4.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.servlet.jsp/jsp-api/jars/jsp-api-2.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.transaction/jta/jars/jta-1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/javax.validation/validation-api/jars/validation-api-1.0.0.GA.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/jline/jline/jars/jline-1.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/junit/junit/jars/junit-4.10.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/log4j/log4j/jars/log4j-1.2.16.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/net.java.dev.jna/jna/jars/jna-3.2.3.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/ognl/ognl/jars/ognl-2.7.3.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/opensymphony/sitemesh/jars/sitemesh-2.4.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.ant/ant/jars/ant-1.8.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.ant/ant-junit/jars/ant-junit-1.8.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.ant/ant-launcher/jars/ant-launcher-1.8.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.ant/ant-trax/jars/ant-trax-1.7.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.ivy/ivy/jars/ivy-2.2.0.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-annotations-api/jars/tomcat-annotations-api-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-api/jars/tomcat-api-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-catalina/jars/tomcat-catalina-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-catalina-ant/jars/tomcat-catalina-ant-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-coyote/jars/tomcat-coyote-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-juli/jars/tomcat-juli-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-servlet-api/jars/tomcat-servlet-api-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat/tomcat-util/jars/tomcat-util-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat.embed/tomcat-embed-jasper/jars/tomcat-embed-jasper-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat.embed/tomcat-embed-logging-juli/jars/tomcat-embed-logging-juli-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.apache.tomcat.embed/tomcat-embed-logging-log4j/jars/tomcat-embed-logging-log4j-7.0.30.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.aspectj/aspectjrt/jars/aspectjrt-1.6.10.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.aspectj/aspectjweaver/jars/aspectjweaver-1.6.10.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.bouncycastle/bcpg-jdk15/jars/bcpg-jdk15-1.45.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.bouncycastle/bcprov-jdk15/jars/bcprov-jdk15-1.45.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.codehaus.gant/gant_groovy1.8/jars/gant_groovy1.8-1.9.6.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.eclipse.jdt.core.compiler/ecj/jars/ecj-3.7.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.fusesource.jansi/jansi/jars/jansi-1.2.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.grails/grails-datastore-core/jars/grails-datastore-core-1.1.0.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-1.1.0.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.1.0.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.grails/grails-gdoc-engine/jars/grails-gdoc-engine-1.0.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hibernate/hibernate-commons-annotations/jars/hibernate-commons-annotations-3.2.0.Final.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hibernate/hibernate-core/jars/hibernate-core-3.6.10.Final.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hibernate/hibernate-ehcache/jars/hibernate-ehcache-3.6.10.Final.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hibernate/hibernate-validator/jars/hibernate-validator-4.1.0.Final.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/jars/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.javassist/javassist/jars/javassist-3.16.1-GA.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.6.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.slf4j/slf4j-api/jars/slf4j-api-1.6.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-aop/jars/spring-aop-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-asm/jars/spring-asm-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-aspects/jars/spring-aspects-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-beans/jars/spring-beans-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-context/jars/spring-context-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-context-support/jars/spring-context-support-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-core/jars/spring-core-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-expression/jars/spring-expression-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-jdbc/jars/spring-jdbc-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-jms/jars/spring-jms-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-orm/jars/spring-orm-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-test/jars/spring-test-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-tx/jars/spring-tx-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-web/jars/spring-web-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.2.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework.uaa/org.springframework.uaa.client/jars/org.springframework.uaa.client-1.0.1.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework.webflow/spring-binding/jars/spring-binding-2.0.8.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework.webflow/spring-js/jars/spring-js-2.0.8.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.springframework.webflow/spring-webflow/jars/spring-webflow-2.0.8.RELEASE.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.xhtmlrenderer/core-renderer/jars/core-renderer-R8.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/org.yaml/snakeyaml/jars/snakeyaml-1.8.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/oro/oro/jars/oro-2.0.8.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/taglibs/standard/jars/standard-1.1.2.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/xalan/serializer/jars/serializer-2.7.1.jar" />
+    <archive path="/usr/local/Cellar/grails/2.1.1/libexec/lib/xpp3/xpp3_min/jars/xpp3_min-1.1.4c.jar" />
+  </library>
+  <library name="grails-2.2.2" />
+  <library name="scala-compiler">
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-compiler.jar" />
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-library.jar" />
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-reflect.jar" />
+  </library>
+  <library name="scala-library">
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-library.jar" />
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-swing.jar" />
+    <archive path="/usr/local/Cellar/scala/2.10.1/libexec/lib/scala-actors.jar" />
+  </library>
+</eclipse-userlibraries>
+

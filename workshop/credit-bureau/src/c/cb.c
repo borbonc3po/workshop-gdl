@@ -8,7 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
-#include <winsock2.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <unistd.h>
 
 #define PORT 3550 /* El puerto que será abierto */
@@ -93,7 +95,7 @@ FILE* openFile(char permission[])
   fseek(file,0,SEEK_SET);
   return file;
 }
- 
+
 void findRFC(char cadena[])
 {
   FILE *file = openFile("r"); 
@@ -101,10 +103,10 @@ void findRFC(char cadena[])
   char lines_to_send[MAX_TO_SEND];
   char values[MAX][MAX];
   char line_backup[MAX];
-  
+
   int i = 0;
   int RFC_position = 0;
-  
+
   bzero(lines_to_send,MAX_TO_SEND);
   while(!feof(file))
   {
@@ -149,14 +151,14 @@ void changeStatus(char mensaje[])
   int i = 0;
   int RFC_position = 0;
   int DATE_position = 0;
-  
+
   splitLine(mensaje,values);
   strcpy(RFC_string,values[0]);
   strcpy(DATE_string,values[1]);
   bzero(values[0],MAX);
   bzero(values[1],MAX);
 //   bzero(lines_to_send,MAX_TO_SEND);
-  
+
   while(!feof(file))
   {
     bzero(line,MAX);
@@ -195,7 +197,6 @@ void doprocessing (int sock)
 {
     int n;
     char buffer[256];
-<<<<<<< HEAD
     bzero(buffer,256);
     n = read(sock,buffer,255);
     //findRFC(buffer);
@@ -212,69 +213,14 @@ void doprocessing (int sock)
     {
         perror("ERROR writing to socket\n");
         exit(1);
-=======
-
-    memset(&(buffer), '0', 256);
-    int recvMsgSize;
-    
-    /* Receive message from client */
-    if ((recvMsgSize = recv(sock, buffer, 256, 0)) < 0)
-        perror("ERROR reading to socket");
-
-    /* Send received string and receive again until end of transmission */
-    while (recvMsgSize > 0)      /* zero indicates end of transmission */
-    {
-        /* Echo message back to client */
-        if (send(sock, buffer, recvMsgSize, 0) != recvMsgSize)
-            perror("ERROR writing to socket");
-
-        /* See if there is more data to receive */
-        if ((recvMsgSize = recv(sock, buffer, 256, 0)) < 0)
-            perror("ERROR reading to socket");
->>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
     }
-
-    closesocket(sock);    /* Close client socket */
-}
-
-BOOL initW32() 
-{
-		WSADATA wsaData;
-		WORD version;
-		int error;
-		
-		version = MAKEWORD( 2, 0 );
-		
-		error = WSAStartup( version, &wsaData );
-		
-		/* check for error */
-		if ( error != 0 )
-		{
-		    /* error occured */
-		    return FALSE;
-		}
-		
-		/* check for correct version */
-		if ( LOBYTE( wsaData.wVersion ) != 2 ||
-		     HIBYTE( wsaData.wVersion ) != 0 )
-		{
-		    /* incorrect WinSock version */
-		    WSACleanup();
-		    return FALSE;
-		}	
 }
 
 
-<<<<<<< HEAD
 void start()
 {
    /* los descriptores de Sockets (que son archivos) */
    int Socket_1, Socket_2; 
-=======
-	 initW32(); /* Necesaria para compilar en Windows */ 
-	 	
-   int fd, fd2; /* los descriptores de archivos */
->>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
 
    /* para la información de la dirección del servidor formato de la estructura:
       struct in_addr
@@ -292,7 +238,7 @@ void start()
    struct sockaddr_in client;
 
    unsigned int sin_size;
-    
+
    /* Para almacenar los process ID de los hijos*/
    pid_t pid;
 
@@ -311,14 +257,14 @@ void start()
    server.sin_addr.s_addr = INADDR_ANY;
    /* escribimos ceros en el reto de la estructura */
    memset(&(server.sin_zero), '0', 8);
-   
+
    /* A continuación la llamada a bind() para asignar el puerto al Socket */
    if(bind(Socket_1,(struct sockaddr*)&server, sizeof(struct sockaddr))==-1) 
    {
       printf("error en bind() \n");
       exit(-1);
    }
-   
+
    /* llamada a listen() Para poner el socket a escuchar las peticiones*/
    if(listen(Socket_1,BACKLOG) == -1) 
    { 
@@ -339,10 +285,9 @@ void start()
          printf("error en accept()\n");
          exit(-1);
       }
-      
+
       /* Aqui se mostrará la IP del cliente */
       printf("Se obtuvo una conexión desde %s\n", inet_ntoa(client.sin_addr) );
-<<<<<<< HEAD
       /* Se enviará el mensaje de bienvenida al cliente */
       //send(Socket_2,"Bienvenido a mi servidor",20,0);
       /*
@@ -371,15 +316,6 @@ void start()
 	  //close(Socket_1);
           close(Socket_2);
       }
-=======
-      /* que mostrará la IP del cliente */
-
-      send(fd2,"Bienvenido a mi servidor.\n",22,0);
-      /* que enviará el mensaje de bienvenida al cliente */
-      
-      doprocessing(fd2);
-
->>>>>>> f6be88f5c74b712ff9d550940f1d9bfe2ba77ac1
    } /* end while */
 }
 
@@ -395,7 +331,7 @@ int main()
   printf("En la funcion el 2-2 es: %c\n",cadena[2][2]);
   */
   start();
-  
+
   return (0);
 }
 

@@ -25,7 +25,8 @@ char *findRFC(char cadena[], int socket)
     fgets(line, MAX, file);
     //fscanf(file,"%[^\n]",line);
     //fseek(file,2,SEEK_CUR);
-//     printf("Esta es la linea numero %i: %s-\n",i,line);
+    printf("Esta es la linea numero %i: %s-\n",i,line);
+    printf("Esto es lo que busco -%s-",cadena);
     strcpy(line_backup,line);
     splitLine(line,values,SEPARATOR_FILE);
     if(i == 0)
@@ -143,7 +144,8 @@ void doprocessing (int sock)
     splitLine(buffer,values,SEPARATOR_OPERATION);
     operation = atoi(values[0]);
     strcpy(client_message,values[1]);
-//     printf("El valor de BUFFER ES: -%s-\n",values[1]);
+    /*Without this line the code does not work :S*/
+    printf("Here is the operation: %i And this is the message: %s\n",operation,client_message);
     switch(operation)
     {
       case 1:

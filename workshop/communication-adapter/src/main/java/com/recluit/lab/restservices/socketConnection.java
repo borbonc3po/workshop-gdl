@@ -1,3 +1,5 @@
+package com.recluit.lab.restservices;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +7,7 @@ import java.net.Socket;
 import java.io.PrintWriter;
 import java.io.*;
 
-public class TestServer
+public class socketConnection
 {
   private Socket socket;
   private InputStreamReader stream;
@@ -14,7 +16,7 @@ public class TestServer
   private String str;
   private String msg;
   
-  public TestServer()
+  public socketConnection(String message)
   {
     try
     {
@@ -22,7 +24,7 @@ public class TestServer
       stream = new InputStreamReader(socket.getInputStream());
       reader = new BufferedReader(stream);
       writer = new PrintWriter(socket.getOutputStream(),true);
-      System.out.println("Conexion establecida con el servidor");
+      msg = message;
     }
     catch(IOException e)
     {
@@ -31,32 +33,33 @@ public class TestServer
     }
   }
   
-  private void communicateWithTheServer()
+  public String communicateWithTheServer()
   {
     try
     {
-      msg = "Hola mundo desde el cliente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11";
-      writer.println("1$34567ZXCVB\0");
-      System.out.println("Ya escribiste en el server");
+      System.out.print("Sending -"+msg+"-");
+      
+	  System.out.println("Conexion establecida con el servidor");
+      writer.println(msg);
+      System.out.println("Message sent to the Unix Server");
+      String response = null;
       while((str = reader.readLine()) != null)
       {
-	System.out.println("Recibiste del servidor: "+str);
+    	  response += "{";
+    	  response += str + "}";
+    	  System.out.println("Actual response: " + response);
       }
       writer.close();
       reader.close();
       socket.close();
+      return str;
     }
     catch(IOException e)
     {
       System.out.println("ERROR: The connection can not be established it");
       e.printStackTrace();
     }
+    return "Error: The connection can not be established";
   }
   
-  public static void main(String[] args)
-  {
-  
-    TestServer test = new TestServer();
-    test.communicateWithTheServer();
-  }
 }

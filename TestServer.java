@@ -36,10 +36,12 @@ public class TestServer
     try
     {
       msg = "Hola mundo desde el cliente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11";
-      writer.println("34567ZXCVB|30/6/2013\0");
+      writer.println("1#34567ZXCVB\0");
       System.out.println("Ya escribiste en el server");
-      str = reader.readLine();
-      System.out.println("Recibiste del servidor: "+str);
+      while((str = reader.readLine()) != null)
+      {
+	System.out.println("Recibiste del servidor: "+str);
+      }
       writer.close();
       reader.close();
       socket.close();

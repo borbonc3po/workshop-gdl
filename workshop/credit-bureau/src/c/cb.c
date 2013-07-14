@@ -4,103 +4,13 @@
  * diferentes entidades.
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
+#include "library.h"
 
-#define PORT 3550 /* El puerto que será abierto */
-#define BACKLOG 2 /* El número de conexiones permitidas */
-#define MAX 600
-#define MAX_TO_SEND 600
-#define SEPARATOR "|"
-#define RFC "RFC"
-#define DATE "DATE"
-#define CLOSE_LOAN 'N'
-#define DATA_FILE "Loans.txt"
-
-
-/* 
- * This function gives you the number column 
- * of the RFC in the File
- * so you can change the position without affect
- * the code
- */
-int getDatePosition(char (*encabezado)[MAX])
-{
-  int i = 0;
-  while(i < MAX)
-  {
-    if(!strcmp(encabezado[i],DATE))
-    {
-      break;
-    }
-    i++;
-  }
-  return i;
-}
-
-/* 
- * This function gives you the number column 
- * of the RFC in the File
- * so you can change the position without affect
- * the code
- */
-int getRfcPosition(char (*encabezado)[MAX])
-{
-  int i = 0;
-  while(i < MAX)
-  {
-    if(!strcmp(encabezado[i],RFC))
-    {
-      break;
-    }
-    i++;
-  }
-  return i;
-}
-
-
-/*
- * This function split the given line (from the DATA_FILE)
- * and put it into a bidimensional array
- */
-void splitLine(char line[],char (*values)[MAX]) 
-{
-  char *split_word;
-  int i = 0;
-  /*This code split the received line and put it
-   * into the bidimensional array
-   */
-  while ((split_word = strsep(&line, SEPARATOR)) != NULL)
-  {
-    strcpy(values[i],split_word);
-    i++;
-  }
-}
-
-/*This function open the file
- * it get a parameter to define
- * how to open the file (read, write, etc)
- */
-FILE* openFile(char permission[])
-{
-  /*It's missing a excpetion handler*/
-  FILE *file;
-  file = fopen(DATA_FILE,permission);
-  fseek(file,0,SEEK_SET);
-  return file;
-}
-
-void findRFC(char cadena[])
+char *findRFC(char cadena[], int socket)
 {
   FILE *file = openFile("r"); 
   char line[MAX];
-  char lines_to_send[MAX_TO_SEND];
+  char *lines_to_send = malloc(MAX_TO_SEND);
   char values[MAX][MAX];
   char line_backup[MAX];
 
@@ -111,13 +21,16 @@ void findRFC(char cadena[])
   while(!feof(file))
   {
     bzero(line,MAX);
+    bzero(line_backup,MAX);
     fgets(line, MAX, file);
-    printf("Esta es la linea numero %i: %s-\n",i,line);
+    //fscanf(file,"%[^\n]",line);
+    //fseek(file,2,SEEK_CUR);
+//     printf("Esta es la linea numero %i: %s-\n",i,line);
     strcpy(line_backup,line);
-    splitLine(line,values);
+    splitLine(line,values,SEPARATOR_FILE);
     if(i == 0)
     {
-      RFC_position = getRfcPosition(values);
+      RFC_position = getColumnPosition(values,RFC);
     }
     else
     {
@@ -128,101 +41,151 @@ void findRFC(char cadena[])
 	 * line has the \n at the end??? ... This is doing that 
 	 * the final package has a \n between the lines to send
 	 */
-	printf("Encontrao %s = %s\n",values[RFC_position],cadena);
-	strcat(lines_to_send,line_backup);
-	strcat(lines_to_send,SEPARATOR);
-	printf("Paquete a enviar: %s\n",lines_to_send);
+	printf("Encontrado %s = %s\n",values[RFC_position],cadena);
+	//strcat(lines_to_send,PACKAGE_START);
+// 	strcat(lines_to_send,line_backup);
+// 	strcat(lines_to_send,"\b\b\b");
+//  	strcat(lines_to_send,(char *)itoa(SEPARATOR_FILE)); //(char*)SEPARATOR_FILE
+	printf("Paquete a enviar: %s\n",line_backup);
+	int n = sendMessage(socket,line_backup,MAX);
+	checkForErrors(n);
       }
     }
     i++;
   }
+  fclose(file);
+  return "Envío Terminado";
 }
 
-void changeStatus(char mensaje[])
+char* changeStatus(char mensaje[])
 {
   FILE *file = openFile("r+");
-  //Encontrar el RFC
   char line[MAX];
-//   char lines_to_send[MAX_TO_SEND];
   char values[MAX][MAX];
-//   char line_backup[MAX];
   char RFC_string[MAX];
   char DATE_string[MAX];
   int i = 0;
   int RFC_position = 0;
   int DATE_position = 0;
-
-  splitLine(mensaje,values);
+  
+  printf("El mensaje original es: %s\n",mensaje);
+  splitLine(mensaje,values,SEPARATOR_FILE);
   strcpy(RFC_string,values[0]);
   strcpy(DATE_string,values[1]);
+  printf("El RFC es: %s\n",RFC_string);
+  printf("La FECHA es: %s\n",DATE_string);
   bzero(values[0],MAX);
   bzero(values[1],MAX);
-//   bzero(lines_to_send,MAX_TO_SEND);
 
   while(!feof(file))
   {
     bzero(line,MAX);
     fgets(line, MAX, file);
-    printf("Esta es la linea numero %i: %s-\n",i,line);
-    //strcpy(line_backup,line);
-    splitLine(line,values);
+//     printf("Esta es la linea numero %i: %s-\n",i,line);
+    splitLine(line,values,SEPARATOR_FILE);
     if(i == 0)
     {
-      RFC_position = getRfcPosition(values);
-      DATE_position = getDatePosition(values);
+      RFC_position = getColumnPosition(values,RFC);
+      DATE_position = getColumnPosition(values,DATE);
+      printf("RFC_position: %i\nDATE_position: %i\n",RFC_position,DATE_position);
     }
     else
     {
+      printf("Valor en [5] -%s-\n",values[DATE_position]);
+      printf("Cheking ... Getting in to a comparation\n%s = %s\n%s = %s\n",values[RFC_position],RFC_string,values[DATE_position],DATE_string);
       if(!strcmp(values[RFC_position],RFC_string) && !strcmp(values[DATE_position],DATE_string))
       {
+	/*
+	 * Be sure that the last line of the 'file' has a "\n" 
+	 * it means that after the last register has to be a 
+	 * blank line or the fseek(...,-3,...) is going to fail
+	 */ 
 	fseek(file,-3,SEEK_CUR);
 	fputc(CLOSE_LOAN,file);
-	break;
+	fclose(file);
+	return "The Loan has been closed correctly";
       }
     }
     i++;
   }
+  fclose(file);
+  return "The Loan has NOT been closed";
 }
 
-void insertData(char mensaje[])
+char* insertData(char mensaje[])
 {
   FILE *file = openFile("r+");
   fseek(file,0,SEEK_END);
   strcat(mensaje,"\n");
   fputs(mensaje,file);
-  printf("Se ha insertado un nuevo registro en el archivo");
+  fclose(file);
+  return "Se ha insertado un nuevo registro en el archivo";
 }
 
 void doprocessing (int sock)
 {
     int n;
     char buffer[256];
+    char answer_to_client[MAX_TO_SEND];
+    char values[MAX][MAX];
+    int operation;
+    char client_message[MAX];
+
+    bzero(answer_to_client,MAX_TO_SEND);
     bzero(buffer,256);
     n = read(sock,buffer,255);
-    //findRFC(buffer);
-    //insertData(buffer);
-    changeStatus(buffer);
     if (n < 0)
     {
         perror("ERROR reading from socket\n");
         exit(1);
     }
     printf("Here is the message: %s\n",buffer);
-    n = write(sock,"I got your message\n",18);
-    if (n < 0)
+    splitLine(buffer,values,SEPARATOR_OPERATION);
+    operation = atoi(values[0]);
+    strcpy(client_message,values[1]);
+//     printf("El valor de BUFFER ES: -%s-\n",values[1]);
+    switch(operation)
     {
-        perror("ERROR writing to socket\n");
-        exit(1);
+      case 1:
+	      {
+		char *message = findRFC(client_message,sock);
+		strcpy(answer_to_client,message);
+	      }
+	break;
+      case 2:
+	      {
+		char *message = insertData(client_message);
+		strcpy(answer_to_client,message);
+	      }
+	break;
+      case 3:
+	      {
+		char *message = changeStatus(client_message);
+		strcpy(answer_to_client,message);
+	      }
+	break;
+      default:
+	      {	
+		printf("There is an error with the client's message\nReturning the message to the client ...\n");
+		char *message = "Error: You don't have the correct message syntaxis";
+		strcpy(answer_to_client,message);
+	      }
+	break;
     }
+    
+    //n = write(sock,"I got your message\n",18);
+    //n = write(sock,answer_to_client,MAX);
+    n = sendMessage(sock,answer_to_client,MAX);
+    checkForErrors(n);
 }
-
 
 void start()
 {
    /* los descriptores de Sockets (que son archivos) */
    int Socket_1, Socket_2; 
 
-   /* para la información de la dirección del servidor formato de la estructura:
+   /*
+    * para la información de la dirección del servidor formato de la estructura:
       struct in_addr
       {
 	unsigned long int s_addr;
@@ -297,7 +260,6 @@ void start()
        * y debe cerrar ese segundo socket para recibir peticiones nuevas
        */
       pid = fork();
-      printf("Ya se creo el Fork\n");
       if (pid < 0) {
           perror("ERROR on fork\n");
            exit(-1);
@@ -305,10 +267,10 @@ void start()
       if (pid == 0)
       {
           /* This is the client process */
-	  printf("Entrando a doprocessing\n");
           close(Socket_1);
           doprocessing(Socket_2);
 	  close(Socket_2);
+	  printf("CERRANDO EL SOCKET DEL CLIENTE\n");
           exit(0);
       }
       else

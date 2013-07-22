@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	<struts>
+		<package name="com.recluit.lab" extends="struts-default">
+			<action name="index">
+				<result>/index.jsp</result>
+			</action>
+			<action name="message" class="com.recluit.lab.action.RequestInformationAction">
+				<result name="success">/books.jsp</result>
+				<result name="showdata">/showdata.jsp</result>
+				<result name="error">/error.jsp</result>
+				<result name="createCostumer">/createCostumer.jsp</result>
+			</action>
+		</package>
+	</struts>

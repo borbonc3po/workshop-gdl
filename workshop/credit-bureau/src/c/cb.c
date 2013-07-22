@@ -6,29 +6,22 @@
 
 #include "library.h"
 
-char *findRFC(char cadena[], int socket)
+void findRFC(char cadena[], int socket)
 {
   FILE *file = openFile("r"); 
   char line[MAX];
-  char *lines_to_send = malloc(MAX_TO_SEND);
   char values[MAX][MAX];
   char line_backup[MAX];
-
   int i = 0;
   int RFC_position = 0;
 
-  bzero(lines_to_send,MAX_TO_SEND);
   while(!feof(file))
   {
     bzero(line,MAX);
     bzero(line_backup,MAX);
     fgets(line, MAX, file);
-    //fscanf(file,"%[^\n]",line);
-    //fseek(file,2,SEEK_CUR);
-    printf("Esta es la linea numero %i: %s-\n",i,line);
-    printf("Esto es lo que busco -%s-",cadena);
     strcpy(line_backup,line);
-    splitLine(line,values,SEPARATOR_FILE);
+    splitLine(line_backup,values,SEPARATOR_FILE);
     if(i == 0)
     {
       RFC_position = getColumnPosition(values,RFC);
@@ -43,19 +36,15 @@ char *findRFC(char cadena[], int socket)
 	 * the final package has a \n between the lines to send
 	 */
 	printf("Encontrado %s = %s\n",values[RFC_position],cadena);
-	//strcat(lines_to_send,PACKAGE_START);
-// 	strcat(lines_to_send,line_backup);
-// 	strcat(lines_to_send,"\b\b\b");
-//  	strcat(lines_to_send,(char *)itoa(SEPARATOR_FILE)); //(char*)SEPARATOR_FILE
-	printf("Paquete a enviar: %s\n",line_backup);
-	int n = sendMessage(socket,line_backup,MAX);
+	printf("Paquete a enviar: %s\n",line);
+	//line[strlen(line)] = '\n';
+	int n = sendMessage(socket,line,strlen(line));
 	checkForErrors(n);
       }
     }
     i++;
   }
   fclose(file);
-  return "Envío Terminado";
 }
 
 char* changeStatus(char mensaje[])
@@ -82,7 +71,6 @@ char* changeStatus(char mensaje[])
   {
     bzero(line,MAX);
     fgets(line, MAX, file);
-//     printf("Esta es la linea numero %i: %s-\n",i,line);
     splitLine(line,values,SEPARATOR_FILE);
     if(i == 0)
     {
@@ -118,6 +106,7 @@ char* insertData(char mensaje[])
   FILE *file = openFile("r+");
   fseek(file,0,SEEK_END);
   strcat(mensaje,"\n");
+  printf("This is the new line of the file %s",mensaje);
   fputs(mensaje,file);
   fclose(file);
   return "Se ha insertado un nuevo registro en el archivo";
@@ -135,6 +124,8 @@ void doprocessing (int sock)
     bzero(answer_to_client,MAX_TO_SEND);
     bzero(buffer,256);
     n = read(sock,buffer,255);
+    deleteNewLineCharacter(buffer);
+    printf("Ya lei el socket\n");
     if (n < 0)
     {
         perror("ERROR reading from socket\n");
@@ -144,14 +135,14 @@ void doprocessing (int sock)
     splitLine(buffer,values,SEPARATOR_OPERATION);
     operation = atoi(values[0]);
     strcpy(client_message,values[1]);
-    /*Without this line the code does not work :S*/
+    /*Without this next line the code does not work :S*/
     printf("Here is the operation: %i And this is the message: %s\n",operation,client_message);
     switch(operation)
     {
       case 1:
 	      {
-		char *message = findRFC(client_message,sock);
-		strcpy(answer_to_client,message);
+		findRFC(client_message,sock);
+		return;
 	      }
 	break;
       case 2:
@@ -174,9 +165,6 @@ void doprocessing (int sock)
 	      }
 	break;
     }
-    
-    //n = write(sock,"I got your message\n",18);
-    //n = write(sock,answer_to_client,MAX);
     n = sendMessage(sock,answer_to_client,MAX);
     checkForErrors(n);
 }
@@ -201,12 +189,9 @@ void start()
    */
    struct sockaddr_in server;
    struct sockaddr_in client;
-
    unsigned int sin_size;
-
    /* Para almacenar los process ID de los hijos*/
    pid_t pid;
-
    /* A continuación la llamada a socket() para crear el socket 1 */
    if ((Socket_1=socket(AF_INET, SOCK_STREAM, 0)) == -1 ) 
    {
@@ -222,21 +207,18 @@ void start()
    server.sin_addr.s_addr = INADDR_ANY;
    /* escribimos ceros en el reto de la estructura */
    memset(&(server.sin_zero), '0', 8);
-
    /* A continuación la llamada a bind() para asignar el puerto al Socket */
    if(bind(Socket_1,(struct sockaddr*)&server, sizeof(struct sockaddr))==-1) 
    {
       printf("error en bind() \n");
       exit(-1);
    }
-
    /* llamada a listen() Para poner el socket a escuchar las peticiones*/
    if(listen(Socket_1,BACKLOG) == -1) 
    { 
       printf("error en listen()\n");
       exit(-1);
    }
-
    /*Se inicia un ciclo infinito*/
    while(1) {
       sin_size=sizeof(struct sockaddr_in);
@@ -250,7 +232,6 @@ void start()
          printf("error en accept()\n");
          exit(-1);
       }
-
       /* Aqui se mostrará la IP del cliente */
       printf("Se obtuvo una conexión desde %s\n", inet_ntoa(client.sin_addr) );
       /* Se enviará el mensaje de bienvenida al cliente */
@@ -277,7 +258,6 @@ void start()
       }
       else
       {
-	  //close(Socket_1);
           close(Socket_2);
       }
    } /* end while */
@@ -285,17 +265,6 @@ void start()
 
 int main()
 {
-  /*
-  char cadena[MAX][MAX] ;
-  strcpy(cadena[0],"Hola Mundo");
-  strcpy(cadena[1],"Hello World");
-  strcpy(cadena[2],"Whots up");
-  printf("En la funcion el 2-2 es: %c\n",cadena[2][2]);
-  splitFile(cadena);
-  printf("En la funcion el 2-2 es: %c\n",cadena[2][2]);
-  */
   start();
-
   return (0);
 }
-
